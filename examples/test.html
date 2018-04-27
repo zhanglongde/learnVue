@@ -5,11 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<div id="app" keep-lived>
+<div id="app">
   <div class="container">
     <div class="content">
       <div class="row">
         <input type="text" v-model="name"> <span>{{name}}</span>
+      </div>
+      <div class="row">
+        <div>年龄:{{age}}</div>
+        <div>性别:{{gender}}</div>
+        <div>职业:{{job}}</div>
       </div>
       <div class="row">
         <button id="btnDestroy">销毁Vue实例</button>
@@ -25,7 +30,10 @@
     el: '#app',
     data () {
       return {
-        name: ''
+        name: 'zld',
+        age: 28,
+        gender: 'Man',
+        job: 'FE'
       }
     },
     beforeCreate () {
@@ -41,6 +49,7 @@
       console.log('-----------------------deactivated')
     },
     beforeUpdate () {
+//      数据更新时调用，发生在虚拟 DOM 打补丁之前
       console.log('-----------------------beforeUpdate')
     },
     updated () {
@@ -51,6 +60,7 @@
     },
     mounted () {
       console.log('-----------------------mounted')
+      console.log(this._data)
     },
     beforeDestroy () {
       console.log('-----------------------beforeDestroy')

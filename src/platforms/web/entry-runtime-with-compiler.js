@@ -78,6 +78,7 @@ Vue.prototype.$mount = function (
       }
     }
   }
+  console.log('%c-----------------------------------------------------------mount相关钩子', 'background-color:#85a;color:#fff;font-size:30px;')
   return mount.call(this, el, hydrating)
 }
 

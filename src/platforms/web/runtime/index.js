@@ -39,6 +39,7 @@ Vue.prototype.$mount = function (
   hydrating?: boolean
 ): Component {
   el = el && inBrowser ? query(el) : undefined
+  console.log('%c-----------------------------------------------------------mountComponent', 'background-color:#85a;color:#fff;font-size:30px;')
   return mountComponent(this, el, hydrating)
 }
 

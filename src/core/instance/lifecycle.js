@@ -57,11 +57,14 @@ export function lifecycleMixin (Vue: Class<Component>) {
     vm._vnode = vnode
     // Vue.prototype.__patch__ is injected in entry points
     // based on the rendering backend used.
+    console.log('%c-----------------------------------------------------------lifecycleMixin _update 更新DOM', 'background-color:#58a;color:#fff;font-size:30px;')
     if (!prevVnode) {
       // initial render
+      console.log('%c-----------------------------------------------------------initial render:__patch__', 'background-color:#58a;color:#fff;font-size:30px;')
       vm.$el = vm.__patch__(vm.$el, vnode, hydrating, false /* removeOnly */)
     } else {
       // updates
+      console.log('%c-----------------------------------------------------------updates:__patch__', 'background-color:#58a;color:#fff;font-size:30px;')
       vm.$el = vm.__patch__(prevVnode, vnode)
     }
     activeInstance = prevActiveInstance
@@ -157,6 +160,7 @@ export function mountComponent (
       }
     }
   }
+  console.log('%c-----------------------------------------------------------mountComponent callhook:beforeMount', 'background-color:#85a;color:#fff;font-size:30px;')
   callHook(vm, 'beforeMount')
 
   let updateComponent
@@ -181,15 +185,18 @@ export function mountComponent (
   } else {
     updateComponent = () => {
       vm._update(vm._render(), hydrating)
+      return 'test updateComponent'
     }
   }
 
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
+  console.log('%c-----------------------------------------------------------new Watcher', 'background-color:#9c3;color:#fff;font-size:30px;')
   new Watcher(vm, updateComponent, noop, {
     before () {
       if (vm._isMounted) {
+        console.log('%c-----------------------------------------------------------mountComponent callhook:beforeUpdate', 'background-color:#e66;color:#fff;font-size:30px;')
         callHook(vm, 'beforeUpdate')
       }
     }
@@ -200,6 +207,7 @@ export function mountComponent (
   // mounted is called for render-created child components in its inserted hook
   if (vm.$vnode == null) {
     vm._isMounted = true
+    console.log('%c-----------------------------------------------------------mountComponent callhook:mounted', 'background-color:#85a;color:#fff;font-size:30px;')
     callHook(vm, 'mounted')
   }
   return vm

@@ -32,7 +32,8 @@ export default function model (
       )
     }
   }
-
+  console.log('%c-----------------------------------------------------------model', 'background-color:#000;color:#fff;font-size:30px;')
+  console.log(tag, type, el.component)
   if (el.component) {
     genComponentModel(el, value, modifiers)
     // component v-model doesn't need extra runtime
@@ -128,7 +129,8 @@ function genDefaultModel (
   modifiers: ?ASTModifiers
 ): ?boolean {
   const type = el.attrsMap.type
-
+  console.log('%c-----------------------------------------------------------genDefaultModel', 'background-color:#000;color:#fff;font-size:30px;')
+  console.log(el, value, modifiers)
   // warn if v-bind:value conflicts with v-model
   // except for inputs with v-bind:type
   if (process.env.NODE_ENV !== 'production') {
@@ -160,9 +162,11 @@ function genDefaultModel (
   }
 
   let code = genAssignmentCode(value, valueExpression)
+  console.log('code:', code)
   if (needCompositionGuard) {
     code = `if($event.target.composing)return;${code}`
   }
+  console.log('code:', code)
 
   addProp(el, 'value', `(${value})`)
   addHandler(el, event, code, null, true)

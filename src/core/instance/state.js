@@ -148,6 +148,7 @@ function initData (vm: Component) {
     }
   }
   // observe data
+  console.log('%c-----------------------------------------------------------observe this._data', 'background-color:#85a;color:#fff;font-size:30px;')
   observe(data, true /* asRootData */)
 }
 

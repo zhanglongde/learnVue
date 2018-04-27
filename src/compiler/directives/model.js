@@ -9,7 +9,6 @@ export function genComponentModel (
   modifiers: ?ASTModifiers
 ): ?boolean {
   const { number, trim } = modifiers || {}
-
   const baseValueExpression = '$$v'
   let valueExpression = baseValueExpression
   if (trim) {

@@ -52,6 +52,8 @@ export function addHandler (
   important?: boolean,
   warn?: Function
 ) {
+  console.log('%c-----------------------------------------------------------', 'background-color:#000;color:#fff;font-size:30px;')
+  console.log(el, name, value)
   modifiers = modifiers || emptyObject
   // warn prevent and passive modifier
   /* istanbul ignore if */
@@ -116,7 +118,7 @@ export function addHandler (
   } else {
     events[name] = newHandler
   }
-
+  console.log('events:', events)
   el.plain = false
 }
 

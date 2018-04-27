@@ -94,6 +94,7 @@ export default class Watcher {
       this.value = undefined
       this.dep = new Dep()
     } else {
+      console.log('%c-----------------------------------------------------------Watcher类,执行this.get()', 'background-color:#85a;color:#fff;font-size:30px;')
       this.value = this.get()
     }
   }
@@ -106,7 +107,9 @@ export default class Watcher {
     let value
     const vm = this.vm
     try {
+      console.log('%c-----------------------------------------------------------updateComponent通过模板编译的mountComponent注册给Watcher类的getter', 'background-color:#f00;color:#fff;font-size:30px;')
       value = this.getter.call(vm, vm)
+      console.log(value)
     } catch (e) {
       if (this.user) {
         handleError(e, vm, `getter for watcher "${this.expression}"`)

@@ -29,6 +29,8 @@ export default class Dep {
 
   depend () {
     if (Dep.target) {
+      console.log('%c-----------------------------------------------------------Dep depend', 'background-color:#fc3;color:#000;font-size:30px;')
+      console.log(Dep.target)
       Dep.target.addDep(this)
     }
   }
@@ -36,6 +38,8 @@ export default class Dep {
   notify () {
     // stabilize the subscriber list first
     const subs = this.subs.slice()
+    console.log('%c-----------------------------------------------------------Dep notify', 'background-color:#fc3;color:#000;font-size:30px;')
+    console.log(subs)
     for (let i = 0, l = subs.length; i < l; i++) {
       subs[i].update()
     }

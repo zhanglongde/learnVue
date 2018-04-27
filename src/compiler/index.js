@@ -13,7 +13,7 @@ export const createCompiler = createCompilerCreator(function baseCompile (
   options: CompilerOptions
 ): CompiledResult {
   const ast = parse(template.trim(), options)
-  console.log('%c-----------------------------------------------------------', 'background-color:#85a;color:#fff;font-size:30px;')
+  console.log('%c-----------------------------------------------------------createCompilerCreator获取render函数', 'background-color:#85a;color:#fff;font-size:30px;')
   console.log(template)
   console.log(ast)
   if (options.optimize !== false) {

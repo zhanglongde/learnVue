@@ -66,6 +66,7 @@ export function initMixin (Vue: Class<Component>) {
     }
 
     if (vm.$options.el) {
+      console.log('-------------------------------------------------------进入编译器init start mount')
       vm.$mount(vm.$options.el)
     }
   }
