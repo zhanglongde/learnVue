@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app" keep-lived>
+  <div class="container">
+    <div class="content">
+      <div class="row">
+        <input type="text" v-model="name"> <span>{{name}}</span>
+      </div>
+      <div class="row">
+        <button id="btnDestroy">销毁Vue实例</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../dist/vue.js"></script>
+
+<script>
+  let app = new Vue({
+    el: '#app',
+    data () {
+      return {
+        name: ''
+      }
+    },
+    beforeCreate () {
+      console.log('-----------------------beforeCreate')
+    },
+    created () {
+      console.log('-----------------------created')
+    },
+    activated () {
+      console.log('-----------------------activated')
+    },
+    deactivated () {
+      console.log('-----------------------deactivated')
+    },
+    beforeUpdate () {
+      console.log('-----------------------beforeUpdate')
+    },
+    updated () {
+      console.log('-----------------------updated')
+    },
+    beforeMount () {
+      console.log('-----------------------beforeMount')
+    },
+    mounted () {
+      console.log('-----------------------mounted')
+    },
+    beforeDestroy () {
+      console.log('-----------------------beforeDestroy')
+    },
+    destroy () {
+      console.log('-----------------------destroy')
+    }
+  })
+
+  document.querySelector('#btnDestroy').addEventListener('click', function () {
+    app.$destroy()
+  })
+</script>
+</body>
+</html>
