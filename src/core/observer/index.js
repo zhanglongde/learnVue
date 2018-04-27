@@ -186,6 +186,7 @@ export function defineReactive (
       } else {
         val = newVal
       }
+      console.log('------------------------------------------------------------set函数，observe',newVal)
       childOb = !shallow && observe(newVal)
       dep.notify()
     }

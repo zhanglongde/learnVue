@@ -23,23 +23,28 @@ v-model实现
 
 
 
+Vue实例构建
+1.初始化各种mixin
+2.new Vue()时，执行实例的_init()
+3.执行生命周期前期以及this._data可观察绑定
+4.通过vm实例,进行模板编译$mount
+
 
 
 Watcher类
 depend()
-Dep.target限制
-
+  Dep.target限制
 update() 模板更新
 
 
 
-Observer
-walk() this._data 进行响应式数据绑定
+Observe
+walk()遍历this._data 进行响应式数据绑定
 
 
 
 defineReactive
 getter()
-depend添加watcher实例到Dep.subs
+  depend添加watcher实例到Dep.subs
 setter()
-执行notify 循环Dep.subs执行update()
+  执行notify 循环Dep.subs执行update() queueWatcher

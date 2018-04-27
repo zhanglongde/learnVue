@@ -190,6 +190,7 @@ export default class Watcher {
     } else if (this.sync) {
       this.run()
     } else {
+      console.log('-------------------------------------------------------------queueWatcher')
       queueWatcher(this)
     }
   }

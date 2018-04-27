@@ -43,6 +43,8 @@ export function generate (
 ): CodegenResult {
   const state = new CodegenState(options)
   const code = ast ? genElement(ast, state) : '_c("div")'
+  console.log('%c----------------------------------------------------------- Vue使用with执行代码字符串', 'background-color:#547;color:#fff;font-size:30px;')
+  console.log(code)
   return {
     render: `with(this){return ${code}}`,
     staticRenderFns: state.staticRenderFns
