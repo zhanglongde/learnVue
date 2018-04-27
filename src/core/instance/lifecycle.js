@@ -184,6 +184,7 @@ export function mountComponent (
     }
   } else {
     updateComponent = () => {
+      console.log('------------------------------------------------------------------执行vm._render()')
       vm._update(vm._render(), hydrating)
       return 'test updateComponent'
     }

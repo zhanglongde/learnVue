@@ -80,7 +80,7 @@ export function renderMixin (Vue: Class<Component>) {
     // render self
     let vnode
     try {
-      console.log('%c-----------------------------------------------------------renderMixin _render', 'background-color:#e66;color:#fff;font-size:30px;')
+      console.log('%c-----------------------------------------------------------renderMixin _render定义，执行option.render(模板编译的render函数)', 'background-color:#e66;color:#fff;font-size:30px;')
       vnode = render.call(vm._renderProxy, vm.$createElement)
       console.log(vnode)
     } catch (e) {

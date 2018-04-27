@@ -68,6 +68,7 @@ Vue.prototype.$mount = function (
         delimiters: options.delimiters,
         comments: options.comments
       }, this)
+      console.log('------------------------------------------------------------------------------render函数挂到options下面')
       options.render = render
       options.staticRenderFns = staticRenderFns
 
