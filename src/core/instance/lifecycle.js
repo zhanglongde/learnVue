@@ -196,6 +196,7 @@ export function mountComponent (
   console.log('%c-----------------------------------------------------------new Watcher', 'background-color:#9c3;color:#fff;font-size:30px;')
   new Watcher(vm, updateComponent, noop, {
     before () {
+      console.log('before 在scheduler flushSchedulerQueue中调用')
       if (vm._isMounted) {
         console.log('%c-----------------------------------------------------------mountComponent callhook:beforeUpdate', 'background-color:#e66;color:#fff;font-size:30px;')
         callHook(vm, 'beforeUpdate')

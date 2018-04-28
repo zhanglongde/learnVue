@@ -58,3 +58,9 @@ setter()
   
   
 代理_data数据
+
+
+
+
+scheduler实现
+queueWatcher() 加入队列，如果不处于等待状态执行flushSchedulerQueue()
