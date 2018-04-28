@@ -15,6 +15,7 @@
         <div>年龄:{{age}}</div>
         <div>性别:{{gender}}</div>
         <div>职业:{{job}}</div>
+        <div>描述:{{desc}}</div>
       </div>
       <div class="row">
         <button id="btnDestroy">销毁Vue实例</button>
@@ -34,6 +35,11 @@
         age: 28,
         gender: 'Man',
         job: 'FE'
+      }
+    },
+    computed: {
+      desc () {
+        return this.name + '-' + this.job + '-' + this.age
       }
     },
     watch: {

@@ -171,6 +171,7 @@ export default class Watcher {
   update () {
     /* istanbul ignore else */
     if (this.computed) {
+      console.log('%c-----------------------------------------------------------computed', 'background-color:#850;color:#fff;font-size:30px;')
       // A computed property watcher has two modes: lazy and activated.
       // It initializes as lazy by default, and only becomes activated when
       // it is depended on by at least one subscriber, which is typically
@@ -189,6 +190,7 @@ export default class Watcher {
         })
       }
     } else if (this.sync) {
+      console.log('%c-----------------------------------------------------------run 异步调用', 'background-color:#00f;color:#fff;font-size:30px;')
       this.run()
     } else {
       console.log('-------------------------------------------------------------queueWatcher')
@@ -201,12 +203,15 @@ export default class Watcher {
    * Will be called by the scheduler.
    */
   run () {
+    console.log('%c-----------------------------------------------------------run 定义', 'background-color:#00f;color:#fff;font-size:30px;')
+    console.log(this.active)
     if (this.active) {
       this.getAndInvoke(this.cb)
     }
   }
 
   getAndInvoke (cb: Function) {
+    console.log('%c-----------------------------------------------------------getAndInvoke', 'background-color:#00f;color:#fff;font-size:30px;')
     const value = this.get()
     if (
       value !== this.value ||
