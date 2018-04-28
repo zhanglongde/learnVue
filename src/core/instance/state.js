@@ -149,6 +149,7 @@ function initData (vm: Component) {
   }
   // observe data
   console.log('%c-----------------------------------------------------------observe this._data', 'background-color:#85a;color:#fff;font-size:30px;')
+  console.log(data)
   observe(data, true /* asRootData */)
 }
 
@@ -341,10 +342,12 @@ export function stateMixin (Vue: Class<Component>) {
   ): Function {
     const vm: Component = this
     if (isPlainObject(cb)) {
+      console.log('%c-----------------------------------------------------------createWatcher', 'background-color:#00f;color:#fff;font-size:30px;')
       return createWatcher(vm, expOrFn, cb, options)
     }
     options = options || {}
     options.user = true
+    console.log('%c-----------------------------------------------------------Vue.prototype.$watch:new Watcher', 'background-color:#00f;color:#fff;font-size:30px;')
     const watcher = new Watcher(vm, expOrFn, cb, options)
     if (options.immediate) {
       cb.call(vm, watcher.value)

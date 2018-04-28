@@ -36,6 +36,11 @@
         job: 'FE'
       }
     },
+    watch: {
+      name(newValue, oldValue) {
+        console.log('------------------------------------------------------------------------------watch name:', newValue, oldValue)
+      }
+    },
     beforeCreate () {
       console.log('-----------------------beforeCreate')
     },
@@ -61,7 +66,7 @@
     mounted () {
       console.log('-----------------------mounted')
       console.log(this)
-      console.log(this._data)
+      console.log(this._data, this.$data)
     },
     beforeDestroy () {
       console.log('-----------------------beforeDestroy')

@@ -146,6 +146,7 @@ export default class Watcher {
    * Clean up for dependency collection.
    */
   cleanupDeps () {
+    console.log('%c-----------------------------------------------------------cleanupDeps', 'background-color:#85a;color:#fff;font-size:30px;')
     let i = this.deps.length
     while (i--) {
       const dep = this.deps[i]

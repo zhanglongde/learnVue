@@ -143,7 +143,8 @@ export function defineReactive (
   const dep = new Dep()
 
   const property = Object.getOwnPropertyDescriptor(obj, key)
-  if (property && property.configurable === false) {
+  if (property && property.configurable === false)
+  {
     return
   }
 
@@ -186,7 +187,7 @@ export function defineReactive (
       } else {
         val = newVal
       }
-      console.log('------------------------------------------------------------set函数，observe',newVal)
+      console.log('------------------------------------------------------------set函数，对新值进行observe',newVal)
       childOb = !shallow && observe(newVal)
       dep.notify()
     }
